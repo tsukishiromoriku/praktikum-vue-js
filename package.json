@@ -1,0 +1,11 @@
+{
+  "name": "praktikum-vue-js",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix belajar-vue run dev",
+    "build": "npm --prefix belajar-vue run build",
+    "preview": "npm --prefix belajar-vue run preview",
+    "format": "npm --prefix belajar-vue run format"
+  }
+}
