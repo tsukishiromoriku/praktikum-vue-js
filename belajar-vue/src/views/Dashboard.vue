@@ -1,11 +1,11 @@
 <script setup>
-import { useRouter } from 'vue-router';
-import { useEvents } from '@/composables/useEvents';
-import AppCard from '@/components/ui/AppCard.vue';
-import AppButton from '@/components/ui/AppButton.vue';
+import { useRouter } from 'vue-router'
+import { useEvents } from '@/composables/useEvents'
+import AppCard from '@/components/ui/AppCard.vue'
+import AppButton from '@/components/ui/AppButton.vue'
 
-const router = useRouter();
-const { events, totalEvents, activeEvents, completedEvents } = useEvents();
+const router = useRouter()
+const { events, totalEvents, activeEvents, completedEvents } = useEvents()
 </script>
 
 <template>
@@ -13,7 +13,9 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
     <div class="dashboard-header">
       <div>
         <h2>Organizer Analytics & Overview</h2>
-        <p class="subtitle">Monitor real-time statistics and track status across all managed events.</p>
+        <p class="subtitle">
+          Monitor real-time statistics and track status across all managed events.
+        </p>
       </div>
       <AppButton variant="primary" @click="router.push('/dashboard/events')">
         🎫 Manage Events &rarr;
@@ -44,7 +46,9 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
       <div class="table-header">
         <div>
           <h3>Recent Events Status Overview</h3>
-          <p class="table-subtitle">Master registry of all events managed across the Gatherly platform.</p>
+          <p class="table-subtitle">
+            Master registry of all events managed across the Gatherly platform.
+          </p>
         </div>
         <button class="btn-manage-link" @click="router.push('/dashboard/events')">
           Open Event Management &rarr;
@@ -62,7 +66,6 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
           </tr>
         </thead>
         <tbody>
-
           <tr v-if="events.length === 0">
             <td colspan="5" class="empty-table-cell">
               <div class="empty-table-content">
@@ -77,7 +80,9 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
 
           <tr v-for="item in events" :key="item.id">
             <td class="font-semibold">{{ item.title }}</td>
-            <td><span class="category-badge">{{ item.cat }}</span></td>
+            <td>
+              <span class="category-badge">{{ item.cat }}</span>
+            </td>
             <td>{{ item.date }} &bull; {{ item.loc }}</td>
             <td>{{ item.quota }} Pax</td>
             <td>
@@ -152,8 +157,12 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
   color: var(--text-muted);
 }
 
-.text-success { color: #2ecc71 !important; }
-.text-muted { color: #8a8d93 !important; }
+.text-success {
+  color: #2ecc71 !important;
+}
+.text-muted {
+  color: #8a8d93 !important;
+}
 
 /* DATA TABLE CONTAINER */
 .data-table-container {
@@ -161,7 +170,7 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
   padding: var(--space-6);
   border-radius: var(--space-4);
   border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
 }
 
 .table-header {
@@ -192,14 +201,17 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
   font-size: 0.95rem;
   padding: 0;
 }
-.btn-manage-link:hover { text-decoration: underline; }
+.btn-manage-link:hover {
+  text-decoration: underline;
+}
 
 .data-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.data-table th, .data-table td {
+.data-table th,
+.data-table td {
   padding: var(--space-3) var(--space-4);
   text-align: left;
   border-bottom: 1px solid var(--border-color);
@@ -268,6 +280,9 @@ const { events, totalEvents, activeEvents, completedEvents } = useEvents();
 }
 
 @media (max-width: 768px) {
-  .dashboard-header { flex-direction: column; align-items: flex-start; }
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 </style>
